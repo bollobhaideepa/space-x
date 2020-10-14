@@ -8,3 +8,7 @@ h2 {
 p {
   margin: 0px;
 }
+
+a {
+  text-decoration: none;
+}
