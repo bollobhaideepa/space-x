@@ -1,23 +1,47 @@
 import React from 'react';
 import Launch from '../Launch/Launch.jsx';
 import './styles.css';
+import axios from 'axios';
 
 class LaunchList extends React.Component{
+    state={
+        launches:[]
+    }
+    componentDidMount = () =>  {
+        this.getLaunches()
+    }
+    getLaunches= ()=>{
+        axios.get('https://api.spacexdata.com/v3/launches')
+        .then((response)=>{
+            this.setState({
+                launches:response.data
+            })
+        })
+        .catch((error)=>{
+            console.log("eroror")
+        })
+
+    }
+    launchList=()=>{
+        const launchlistcomponent=this.state.launches.map((launch,index) =>{
+            const image=launch.links.flickr_images.length===0?'https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60':launch.links.flickr_images[0]
+            console.log(launch)
+            return <Launch 
+                key={"launch_"+index}
+                title={launch.mission_name} 
+                date={launch.launch_date_local} 
+                description={launch.details} 
+                drawing={image}/>
+        })
+        return launchlistcomponent
+    }
+
     render(){
+        console.log(this.state.launches[0])
         return(
-    <div className="Launchlist">
-    <Launch
-     title="tittle" 
-     date="12/34/21" 
-     description="description" 
-     drawing="https://farm2.staticflickr.com/1648/23827554109_837b21739e_o.jpg"/>
-     
-     <Launch
-     title="tittle" 
-     date="12/34/21" 
-     description="description" 
-     drawing="https://farm2.staticflickr.com/1648/23827554109_837b21739e_o.jpg"/>
-    </div>
+            <div className="Launchlist">
+                {this.launchList()}
+            </div>
         )
     }
 }
