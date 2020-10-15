@@ -3,8 +3,9 @@ import Launch from '../Launch/Launch.jsx';
 import './styles.css';
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import {withRouter} from 'react-router';
 
-class LaunchList extends React.Component{
+export class LaunchList extends React.Component{
     state={
         launches:[]
     }
@@ -50,4 +51,4 @@ class LaunchList extends React.Component{
         )
     }
 }
-export default LaunchList;
+export default withRouter(LaunchList);

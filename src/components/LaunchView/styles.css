@@ -1,0 +1,17 @@
+.attbr {
+  display: flex;
+}
+.attbr h1 {
+  width: 400px;
+  font-size: 20px;
+  color: darkorchid;
+}
+.launchview {
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 50px;
+}
+.launchview .launchdescription {
+  font-size: 20px;
+  color: darkorchid;
+}
