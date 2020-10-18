@@ -1,5 +1,6 @@
 .attbr {
   display: flex;
+  margin-bottom: 20px;
 }
 .attbr h1 {
   width: 400px;
@@ -14,4 +15,23 @@
 .launchview .launchdescription {
   font-size: 20px;
   color: darkorchid;
+  padding-bottom: 50px;
+}
+.launchview img {
+  height: 300px;
+  /*padding-bottom: 25px;*/
+  width: 300px !important;
+  border: 1px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 9px 1px red;
+}
+.flickr_images {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-row-gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.attribute_section {
+  margin-bottom: 50px;
 }

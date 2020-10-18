@@ -1,19 +1,25 @@
 import React from 'react';
 import axios from 'axios';
-import {withRouter} from 'react-router';
+import { withRouter } from 'react-router';
 import './styles.css';
+
+  
 export class LaunchView extends React.Component{
     state={
-        launch:{}
-    }
+        launch:{
+            links:{
+                flickr_images: [],
+            },
+        },
+    };
     componentDidMount=()=>{
-        const flight_No=this.props.match.params.flight_number
-        this.getLaunch(flight_No)
-    }
-    getLaunch=(flight_No)=>{
-        axios.get('https://api.spacexdata.com/v3/launches/3'+flight_No).then((responce) => {
+        const flightNo=this.props.match.params.flight_number
+        this.getLaunch(flightNo);
+    };
+    getLaunch=(flightNo)=>{
+        axios.get('https://api.spacexdata.com/v3/launches/3'+flightNo).then((response) => {
             this.setState({
-                launch:responce.data
+                launch:response.data
             })
             }).catch((error)=>{
                 console.log(error)
@@ -26,17 +32,28 @@ export class LaunchView extends React.Component{
                 <h1>{title}</h1>
                 <h1>{value}</h1>
             </div>
-        )
-    }
+        );
+    };
     render(){
+        console.log(this.state.launch.links.flickr_images);
+        const hashImages = this.state.launch.links.flickr_images.length > 0;
         return(
             <div className="launchview">
-                {this.launchAttribute("Mission Name","mission_name")}
-                {this.launchAttribute("Flight Number","flight_number")}
-                {this.launchAttribute("Launch Date","launch_date_local")}
-               <p className="launchdescription"> {this.state.launch.details}</p>
+                <div className="attribute_section">
+                    {this.launchAttribute("Mission Name ------------------>","mission_name")}
+                    {this.launchAttribute("Flight Number ----------------->","flight_number")}
+                    {this.launchAttribute("Launch Date ------------------->","launch_date_local")}
+                </div>
+                <hr/>
+                <div className="flickr_images">
+                    {hashImages &&
+                    this.state.launch.links.flickr_images.map((each, index) => (
+                    <img key={index} alt="flicker image" style={{ width: "100%" }} src={each} />))
+                    }
+                </div>
+                <p className="launchdescription"> {this.state.launch.details}</p>
             </div>
-        )
+        );
     }
 }
 export default withRouter(LaunchView);
