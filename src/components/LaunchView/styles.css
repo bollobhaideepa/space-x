@@ -23,7 +23,7 @@
   width: 300px !important;
   border: 1px;
   border-radius: 5px;
-  box-shadow: 1px 1px 9px 1px red;
+  box-shadow: 1px 1px 9px 1px darkblue;
 }
 .flickr_images {
   display: grid;

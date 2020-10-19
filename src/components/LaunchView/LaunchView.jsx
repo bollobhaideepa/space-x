@@ -35,7 +35,6 @@ export class LaunchView extends React.Component{
         );
     };
     render(){
-        console.log(this.state.launch.links.flickr_images);
         const hashImages = this.state.launch.links.flickr_images.length > 0;
         return(
             <div className="launchview">
@@ -48,7 +47,7 @@ export class LaunchView extends React.Component{
                 <div className="flickr_images">
                     {hashImages &&
                     this.state.launch.links.flickr_images.map((each, index) => (
-                    <img key={index} alt="flicker image" style={{ width: "100%" }} src={each} />))
+                    <img key={index} alt="flicker" style={{ width: "100%" }} src={each} />))
                     }
                 </div>
                 <p className="launchdescription"> {this.state.launch.details}</p>
