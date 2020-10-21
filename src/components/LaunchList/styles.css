@@ -1,5 +1,6 @@
 .Launchlist {
-  width: 950px;
+  width: 800px;
   margin: auto;
-  margin-top: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }

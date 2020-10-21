@@ -1,17 +1,18 @@
 .launch {
-  height: 160px;
+  height: 200px;
   width: 100%;
   display: flex;
   padding: 8px;
   box-shadow: 1px 1px 9px 1px darkblue;
   border-radius: 10px;
   background-color: blanchedalmond;
+  cursor: pointer;
   margin-bottom: 20px;
 
   /* margin: 20px; */
 }
-img {
-  height: 150px;
+.launch img {
+  height: 200px;
   width: 200px;
 }
 .content .data {
@@ -19,7 +20,8 @@ img {
   justify-content: space-between;
 }
 .content {
-  width: 88%;
+  width: 80%;
+  font-size: 12px;
   margin-left: 20px;
 }
 .content p {
@@ -31,11 +33,5 @@ img {
   overflow: hidden;
   cursor: pointer;
   margin-top: 20px;
-
   color: darkblue;
-  /*margin: 0px;*/
 }
-/* }
-.data {
-  margin: 0px;
-} */

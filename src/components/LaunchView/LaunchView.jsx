@@ -39,9 +39,9 @@ export class LaunchView extends React.Component{
         return(
             <div className="launchview">
                 <div className="attribute_section">
-                    {this.launchAttribute("Mission Name ------------------>","mission_name")}
-                    {this.launchAttribute("Flight Number ----------------->","flight_number")}
-                    {this.launchAttribute("Launch Date ------------------->","launch_date_local")}
+                    {this.launchAttribute("Mission Name","mission_name")}
+                    {this.launchAttribute("Flight Number","flight_number")}
+                    {this.launchAttribute("Launch Date","launch_date_local")}
                 </div>
                 <hr/>
                 <div className="flickr_images">
